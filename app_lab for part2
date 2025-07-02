@@ -1,0 +1,41 @@
+# =========================
+# app_lab.py — Flask Part 2
+# Author: Andre Gutierrez
+# Date: 7/2/25
+# CST 205
+# =========================
+
+# GitHub Repository: https://github.com/andrewarriors739/flasklabpart1CST205
+
+from flask import Flask, render_template
+from flask_bootstrap import Bootstrap5  # For Bootstrap integration
+
+# Creates the Flask application object
+flask_app = Flask(__name__)
+bootstrap = Bootstrap5(flask_app)  # Initialize Bootstrap
+
+# Dictionary for Task 3
+task3_dictionary = {
+    "fruit": "Watermelon",
+    "color": "Green",
+    "number": 30
+}
+
+@flask_app.route('/')
+def homepage():
+    # Passes the dictionary to the template
+    return render_template('main_template.html', data=task3_dictionary)
+
+@flask_app.route('/image')
+def show_image():
+    # Display an image from the static folder
+    return render_template('image_template.html')
+
+# Run the app
+if __name__ == '__main__':
+    flask_app.run(debug=True)
+
+
+
+
+
